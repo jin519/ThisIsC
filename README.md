@@ -1,2 +1,5 @@
-# ThisIsC
-이것이 C언어다 책의 예제들에 대한 솔루션입니다.
+<h1>이것이 C언어다</h1>
+
+<p>
+  <kbd><img src="./md/cover.jpg" width="250px"></kbd>
+</p>
