@@ -16,31 +16,66 @@ C언어: 1972년 데니스 리치(Dennis Ritchie)가 유닉스 시스템에 사�
   <kbd><img src="./img/01.png"></kbd>
 </p>
 
-- 소스 파일(source file): C언어로 작성된 문서
-  ```
-  #include <stdio.h>
-  #include "Student.h"
-  
-  int main(void) {...}
-  ```
-- 전처리(preprocess): 전처리 지시자에 따라 소스 파일을 가공한다.
-  ```
-  stdio.h 헤더파일의 내용
-  
-  typedef struct 
-  {
-    int num;
-    char name[20];
-  } Student;
-  
-  int main(void) {...}
-  ```
-- 컴파일: 소스 파일을 기계어(0과 1로 구성된 특별한 신호)로 바꾸는 과정
-  ```
-  01100101010001
-  11010111010100
-  110101001...
-  ```
-- 개체 파일(object file): CPU가 해석할 수 있는 명령어(instruction)들로 이루어진 기계어 파일
-- 링크(link): 개체 파일에 startup code를 결합하는 과정<br>
-  프로그램은 운영체제에 의해서 실행되기 때문에 설치된 운영체제가 인식할 수 있는 형태로 바꾸어 준다.
+<table>
+  <tbody>
+    <tr>
+      <td width="18%"><b>Source File</b></td>
+      <td width="55%">
+        <img src="./img/02.png"><br>
+        <em>main.c</em>
+      </td>
+      <td>C언어로 작성된 문서</td>
+    </tr>
+    <tr>
+      <td><b>Pre-processing</b></td>
+      <td>
+        <img src="./img/03.png"><br>
+        <img src="./img/04.png"><br>
+        <em>main.i</em>
+      </td>
+      <td>
+        main.c &#10140; 전처리기 &#10140; main.i<br>
+        전처리기는 다음을 수행한다.<br><br>
+        <ul>
+          <li>주석 제거</li>
+          <li>매크로 확장</li>
+          <li>include 된 파일 확장</li>
+          <li>조건부 컴파일</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Compiling</b></td>
+      <td>
+        <img src="./img/05.png"><br>
+        <em>main.s</em>
+      </td>
+      <td>
+        main.i &#10140; 컴파일러 &#10140; main.s<br>
+        어셈블리 코드로 변환된다.
+      </td>
+    </tr>
+    <tr>
+      <td><b>Assembly</b></td>
+      <td>
+        <img src="./img/06.png"><br>
+        <em>main.o</em>
+      </td>
+      <td>
+        main.s &#10140; 어셈블러 &#10140; main.o<br>
+        기계어로 변환된다.<br>
+        (단 함수 호출문의 경우 본 단계에서 처리되지 않고, 링킹 과정에서 함수가 정의된 위치(포인터) 정보로 치환된 후 기계어로 변환된다.)
+      </td>
+    </tr>
+    <tr>
+      <td><b>Linking</b></td>
+      <td>
+        <img src="./img/08.png">
+      </td>
+      <td>
+        함수 호출문을 함수가 정의된 위치(포인터) 정보로 치환 후 기계어로 변환한다.<br>
+        운영체제가 프로그램을 시작하고 끝내는데 필요한 코드들을 추가한다.
+      </td>
+    </tr>
+  </tbody>
+</table>
