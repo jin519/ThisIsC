@@ -30,18 +30,10 @@ BoolList disableBit(const BoolList boolList, const index_t index)
 {
 	// boolList의 index번째 해당하는 bit를 false로 변경한다.
 	// 이미 false인 상태라면 계속 false를 유지한다.
-
+	
 	const BoolList FLAGGED_BITS = (1 << (index - 1));
 
-	if (checkBit(boolList, FLAGGED_BITS))
-		return (boolList ^ FLAGGED_BITS);
-
-	return boolList;
-}
-
-unsigned int checkBit(const BoolList boolList, const BoolList FlaggedBits) 
-{
-	return (boolList & FlaggedBits);
+	return (boolList & ~FLAGGED_BITS);
 }
 
 /*
@@ -53,7 +45,7 @@ void printBool(const unsigned int boolList)
 	{
 		const BoolList FLAGGED_BITS = (1 << n);
 
-		if (checkBit(boolList, FLAGGED_BITS))
+		if (boolList & FLAGGED_BITS)
 			printf("%2u번째 bit는 true입니다.\n", (n + 1));
 	}
 
