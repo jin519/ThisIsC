@@ -8,6 +8,7 @@
 	본 과제에서는 이를 개선하기 위한 Custom 자료구조와 알고리즘을 구현해본다.
 */
 
+#include <stdio.h>
 typedef unsigned int BoolList;
 
 /*
@@ -17,12 +18,18 @@ typedef unsigned int BoolList;
 */
 void printBool(const BoolList boolList)
 {
-
+	for (unsigned int n = 0; n < 32; ++n)
+	{
+		unsigned int FLAGGED_BITS = (1 << n);
+		
+		if (FLAGGED_BITS & boolList)
+			printf("%2u번째 bit는 true입니다.\n", (n + 1));
+	}
 }
 
 int main()
 {
-	// (왼쪽에서부터) 2, 6, 7, 9, 11, 14번째 bit가 true임.
+	// (오른쪽에서부터) 2, 6, 7, 9, 11, 14번째 bit가 true임.
 	const BoolList BOOL_LIST = 0b0010'0101'0110'0010U;
 	printBool(BOOL_LIST);
 

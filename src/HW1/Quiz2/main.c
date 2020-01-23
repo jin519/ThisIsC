@@ -8,6 +8,7 @@
 	본 과제에서는 이를 개선하기 위한 Custom 자료구조와 알고리즘을 구현해본다.
 */
 
+#include <stdio.h>
 typedef unsigned int BoolList;
 typedef unsigned int index_t;
 
@@ -22,7 +23,7 @@ BoolList enableBit(const BoolList boolList, const index_t index)
 	// boolList의 index번째 해당하는 bit를 true로 변경한다.
 	// 이미 true인 상태라면 계속 true를 유지한다.
 
-	return 0U;
+	return (boolList | (1 << (index - 1)));
 }
 
 BoolList disableBit(const BoolList boolList, const index_t index)
@@ -30,7 +31,17 @@ BoolList disableBit(const BoolList boolList, const index_t index)
 	// boolList의 index번째 해당하는 bit를 false로 변경한다.
 	// 이미 false인 상태라면 계속 false를 유지한다.
 
-	return 0U;
+	const BoolList FLAGGED_BITS = (1 << (index - 1));
+
+	if (checkBit(boolList, FLAGGED_BITS))
+		return (boolList ^ FLAGGED_BITS);
+
+	return boolList;
+}
+
+unsigned int checkBit(const BoolList boolList, const BoolList FlaggedBits) 
+{
+	return (boolList & FlaggedBits);
 }
 
 /*
@@ -38,7 +49,15 @@ BoolList disableBit(const BoolList boolList, const index_t index)
 */
 void printBool(const unsigned int boolList)
 {
+	for (unsigned int n = 0; n < 32; ++n)
+	{
+		const BoolList FLAGGED_BITS = (1 << n);
 
+		if (checkBit(boolList, FLAGGED_BITS))
+			printf("%2u번째 bit는 true입니다.\n", (n + 1));
+	}
+
+	puts("=============================");
 }
 
 int main()
@@ -54,6 +73,16 @@ int main()
 	boolList2 = enableBit(boolList2, 28);
 
 	// 1, 2, 6, 7, 9, 11, 14, 17, 23, 28번째 bit가 true임.
+	printBool(boolList2);
+
+	boolList2 = disableBit(boolList2, 1);
+	boolList2 = disableBit(boolList2, 2);
+	boolList2 = disableBit(boolList2, 3);
+	boolList2 = disableBit(boolList2, 4);
+	boolList2 = disableBit(boolList2, 5);
+	boolList2 = disableBit(boolList2, 17);
+	boolList2 = disableBit(boolList2, 23);
+	boolList2 = disableBit(boolList2, 28);
 	printBool(boolList2);
 
 	return 0;
