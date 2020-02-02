@@ -10,4 +10,5 @@
   Chap 03 변수와 데이터 입력 <a href="./md/chap-03/chap-03.md">노트</a> <a href="./src/chap-03">소스</a><br>
   Chap 04 연산자 <a href="./src/chap-04">소스</a><br>
   Chap 05 선택문 (if, switch~case) <a href="./src/chap-05">소스</a><br>
+  Chap 06 반복문 <a href="./src/chap-06">소스</a><br>
 </p>
