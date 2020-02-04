@@ -12,4 +12,5 @@
   Chap 05 선택문 (if, switch~case) <a href="./src/chap-05">소스</a><br>
   Chap 06 반복문 <a href="./src/chap-06">소스</a><br>
   Chap 07 함수 <a href="./src/chap-07">소스</a><br>
+  Chap 08 배열 <a href="./src/chap-08">소스</a><br>
 </p>
