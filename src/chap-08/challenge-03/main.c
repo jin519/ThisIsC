@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool hasElement(int arr[], const size_t size, const int element) 
+bool hasElement(int arr[], const size_t maxIdx, const int element) 
 {
-	for (size_t i = 0; i < size; ++i)
+	for (size_t i = 0; i < maxIdx; ++i)
 		if (arr[i] == element)
 			return true;
 
@@ -26,7 +26,10 @@ int main()
 		if (hasElement(arr, i + 1, element)) 
 			puts("같은 번호가 있습니다!");
 		else
-			arr[i++] = element;
+		{
+			arr[i] = element;
+			++i;
+		}
 	}
 
 	printf("입력된 로또 번호: ");

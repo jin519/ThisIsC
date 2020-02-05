@@ -16,10 +16,10 @@ int main()
 	{
 		const char CURRENT_CASE = str[i];
 
-		if (CURRENT_CASE == '\0')
+		if (!CURRENT_CASE)
 			break;
 
-		if (CURRENT_CASE >= 'A' && CURRENT_CASE <= 'Z')
+		if ((CURRENT_CASE >= 'A') && (CURRENT_CASE <= 'Z'))
 		{
 			str[i] += CASE_OFFSET;
 			++upperCaseSize;
