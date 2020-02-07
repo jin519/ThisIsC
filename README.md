@@ -13,4 +13,5 @@
   Chap 06 반복문 <a href="./src/chap-06">소스</a><br>
   Chap 07 함수 <a href="./src/chap-07">소스</a><br>
   Chap 08 배열 <a href="./src/chap-08">소스</a><br>
+  Chap 09 포인터 <a href="./src/chap-09">소스</a><br>
 </p>
