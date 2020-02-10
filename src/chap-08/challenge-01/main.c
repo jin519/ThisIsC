@@ -37,7 +37,7 @@ int main()
 
 	for (size_t i = 0; i < SIZE; ++i)
 	{
-		if (i != maxIdx && i != minIdx)
+		if ((i != maxIdx) && (i != minIdx))
 		{
 			const int VALID_GRADE = grade[i];
 
