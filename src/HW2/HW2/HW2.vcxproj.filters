@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Network">
+      <UniqueIdentifier>{8e5c4cb6-8117-4627-a2e8-8f2ffb437eef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c" />
+    <ClCompile Include="Network.c">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="DataType.c">
+      <Filter>Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Network.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="DataType.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
