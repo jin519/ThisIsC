@@ -35,12 +35,17 @@ int main()
 
 		(함수의 구현은 Network.c, line 20에서 하시오.)
 	*/
-	int targetData[] = { 1, 2, 3, 4, 5, 6 };
-	const size_t NUM_ELEMENTS = (sizeof(targetData) / sizeof(targetData[0]));
 
-	//// 4 + 8 + (4 * 6) = 36이 나와야 함.
+#define TARGET_DATA2_SIZE 1024
+	double targetData2[TARGET_DATA2_SIZE];
+
+	for (size_t i = 0; i < TARGET_DATA2_SIZE; i++)
+		targetData2[i] = (((double)i) * 10.);
+
+	const DataType dataType = DT_DOUBLE;
+
 	const size_t streamSize =
-		networkMgr.calcStreamSize(DT_INT, NUM_ELEMENTS);
+		networkMgr.calcStreamSize(dataType, TARGET_DATA2_SIZE);
 
 	/*
 		문제 2:
@@ -50,7 +55,7 @@ int main()
 		(함수의 구현은 Network.c, line 32에서 하시오.)
 	*/
 	uint8_t* pStreamBuffer = malloc(streamSize);
-	networkMgr.encode(DT_INT, NUM_ELEMENTS, targetData, pStreamBuffer);
+	networkMgr.encode(dataType, TARGET_DATA2_SIZE, targetData2, pStreamBuffer);
 
 	/*
 		문제 3:
@@ -60,11 +65,10 @@ int main()
 
 		(함수의 구현은 Network.c, line 49, 54에서 하시오.)
 	*/
-	// DT_INT가 나와야 함.
+
 	const DataType decodedDataType =
 		networkMgr.decodeDataType(pStreamBuffer);
 
-	// 6이 나와야 함.
 	const size_t decodedNumValues =
 		networkMgr.decodeNumValues(pStreamBuffer);
 
@@ -75,14 +79,14 @@ int main()
 
 		(함수의 구현은 Network.c, line 59에서 하시오.)
 	*/
-	int* pDecodedData =
+	double* pDecodedData =
 		malloc(dataTypeMgr.getDataSize(decodedDataType) * decodedNumValues);
 
-	// pDecodedData엔 1, 2, 3, 4, 5, 6이 저장되어야 함.
 	networkMgr.decode(pStreamBuffer, pDecodedData);
 
-	for (size_t i = 0; i < decodedNumValues; i++)
-		printf("%d ", pDecodedData[i]);
+#define min(x, y) (((x) < (y)) ? (x) : (y))
+	for (size_t i = 0; i < min(decodedNumValues, 10); i++)
+		printf("%lf ", pDecodedData[i]);
 
 	free(pDecodedData);
 	pDecodedData = NULL;

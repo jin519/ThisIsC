@@ -4,7 +4,7 @@
 
 typedef enum
 {
-	DT_INT = 0,
+	DT_INT = 0x100000,
 	DT_FLOAT,
 	DT_DOUBLE
 }
