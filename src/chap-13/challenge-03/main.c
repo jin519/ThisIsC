@@ -6,10 +6,10 @@
 char* myToken(char* ps)
 {
 	static int sentIdx;
-	static char token[50] = { '\0' };
+	static char token[50];
 	int tokenIdx = 0;
 
-	if (ps[sentIdx] == '\0')
+	if (!ps[sentIdx])
 		return NULL;
 
 	while ((ps[sentIdx] != ' ') && ps[sentIdx])
