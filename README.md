@@ -21,4 +21,5 @@
   Chap 13 변수의 영역과 데이터 공유 <a href="./src/chap-13">소스</a><br>
   Chap 14 다차원 배열과 포인터 배열 <a href="./src/chap-14">소스</a><br>
   Chap 15 응용 포인터 <a href="./src/chap-15">소스</a><br>
+  Chap 16 메모리 동적 할당 <a href="./src/chap-16">소스</a><br>
 </p>
