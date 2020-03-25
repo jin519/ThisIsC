@@ -22,4 +22,5 @@
   Chap 14 다차원 배열과 포인터 배열 <a href="./src/chap-14">소스</a><br>
   Chap 15 응용 포인터 <a href="./src/chap-15">소스</a><br>
   Chap 16 메모리 동적 할당 <a href="./src/chap-16">소스</a><br>
+  Chap 17 사용자 정의 자료형 <a href="./src/chap-17">소스</a><br>
 </p>
