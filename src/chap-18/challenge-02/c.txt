@@ -1,0 +1,6 @@
+elephant
+pear
+apple
+kangaroo
+orange
+bear
